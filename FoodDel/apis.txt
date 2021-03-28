@@ -1,0 +1,454 @@
+Login (POST)
+http://127.0.0.1:8000/token/login/
+form data:
+username:string
+password:string
+
+###############################################################################
+Logout(POST)
+http://127.0.0.1:8000/token/logout/
+Headers
+Authorization:Token 4534aa014e468c4dc3dcaaa4a30d5442fba43786
+
+###############################################################################
+
+Change Password(POST)
+http://127.0.0.1:8000/users/set_password/
+Headers
+Authorization:Token 4534aa014e468c4dc3dcaaa4a30d5442fba43786
+Form-data
+new_password:string
+current_password:string
+
+###############################################################################
+
+Forgot Password(POST)
+
+Step1:Send Mail
+http://127.0.0.1:8000/users/reset_password/
+form-data
+email:string
+
+Step2:Confirm
+http://127.0.0.1:8000/users/reset_password_confirm/
+form-data
+uid:string(send in mail)
+token:string(send in mail)
+new_password:string
+
+
+###############################################################################
+
+Get Logged In users information(GET)
+http://127.0.0.1:8000/api/userinfo/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+###############################################################################
+
+###############################################################################
+
+Get Logged In deliveryboy information(GET)
+http://127.0.0.1:8000/api/deliveryboyinfo/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+###############################################################################
+
+
+
+
+Register New Customer(POST)
+http://127.0.0.1:8000/api/createcustomer/
+
+{
+    
+
+'username': 'hayden', string ( unique)
+'first_name': 'hayden',string
+'last_name': 'cordeiro',string
+'email': 'cordeirohayden',string( unique)
+'password':'XYZ@1234',string
+'phoneNo':'9596949533 string
+
+}
+
+###############################################################################
+
+###############################################################################
+
+
+
+
+Register New DelvieryBoy(POST)
+http://127.0.0.1:8000/api/createdeliveryboy/
+
+{
+    
+
+'username': 'hayden', string ( unique)
+'first_name': 'hayden',string
+'last_name': 'cordeiro',string
+'email': 'cordeirohayden',string( unique)
+'password':'XYZ@1234',string
+'phoneNo':'9596949533 string
+
+}
+
+###############################################################################
+Loggen In Customers All orders(GET)
+http://127.0.0.1:8000/api/loggedincustomerorders/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+Get All Orders Which require Delivery of logged in customer(GET)
+http://127.0.0.1:8000/api/customerpendingorders/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+List ALL Shops(GET)
+http://127.0.0.1:8000/api/listallshops/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+List All Products(GET)
+http://127.0.0.1:8000/api/listallproducts/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+
+Create product Order Customer(POST)
+http://127.0.0.1:8000/api/customerbuyproduct/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+{
+"orderImg":"sadgf",
+"latitude":-1,
+"longitude":1,
+"productId":"1,2,3]",
+productQuan:"1,2,2"
+"status":"pending",
+addressinwords:"home",
+typeOfPayment:cash (cash or card string)
+shopID:1 (int)
+orderPrice: 100 float
+
+
+}
+
+###############################################################################
+
+
+
+Cancel product order Customer(POST)
+http://127.0.0.1:8000/api/customercancelproduct/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+{
+    "productId":1
+
+}
+
+
+###############################################################################
+###############################################################################
+
+
+
+Delviery boy orders(GET)
+http://127.0.0.1:8000/api/deliveryboypendingorders/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+###############################################################################
+
+
+
+Delviery boy accept orders(POST)
+http://127.0.0.1:8000/api/deliveryboypendingorders/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+orderID:16
+status:indelivery
+
+
+###############################################################################
+
+
+
+###############################################################################
+
+
+
+Logged in Delviery boy ongoing order(GET)
+http://127.0.0.1:8000/api/deliveryboyinorderorders/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+
+
+###############################################################################
+
+Add products (POST)
+http://127.0.0.1:8000/api/addproduct/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+Body
+name:test product
+price:12
+shopID:1
+category:1
+image: file
+
+
+
+###############################################################################
+
+
+###############################################################################
+
+List all product categories (GET)
+http://127.0.0.1:8000/api/allproductcategories/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+
+###############################################################################
+
+Update order status(POST)
+
+http://127.0.0.1:8000/api/updateorderstatus/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+status:pending
+orderID:18
+
+###############################################################################
+
+
+###############################################################################
+
+Add Shop(POST)
+
+http://127.0.0.1:8000/api/addshop/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+name:sagdfaskjsgfd
+email:sadfsjdhfsadjf@gmail.com
+phoneNo:2152345612
+currentOffer:1.2
+ShopImg:test
+locality:1
+latitude:-1
+longitude:-2
+addressinwords:test
+
+
+###############################################################################
+
+
+###############################################################################
+
+List all products of Shop(POST)
+
+http://127.0.0.1:8000/api/allproductsshop/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+shopID:1
+
+
+###############################################################################
+###############################################################################
+Firebase Token (GET,POST)
+
+http://127.0.0.1:8000/api/firebasetoken/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+token:sadfhkas
+
+
+###############################################################################
+
+###############################################################################
+Shop Analysis (POST)
+http://127.0.0.1:8000/api/shopanalysis/
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+shopID:1(int)
+
+
+###############################################################################
+
+
+###############################################################################
+Update Shop details (POST)
+
+
+http://127.0.0.1:8000/api/updateshopdetails/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+shopID:1(int)
+currentOffer:10.2 (float)
+
+###############################################################################
+
+
+
+###############################################################################
+Update Product (POST)
+
+http://127.0.0.1:8000/api/updateproduct/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+prodID:1(int)
+name:test (string)
+price:1 (float)
+
+###############################################################################
+
+
+
+
+
+###############################################################################
+Delete Product (POST)
+
+http://127.0.0.1:8000/api/deleteproduct/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+prodID:1(int)
+
+
+###############################################################################
+
+Logged in vendors shop (GET)
+http://127.0.0.1:8000/api/loggedinvendorshop/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+
+###############################################################################
+
+All orders of vendors shop (GET)
+
+http://127.0.0.1:8000/api/vendorshoporder/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+###############################################################################
+
+
+Single Shop Details (GET)
+http://127.0.0.1:8000/api/singleshopdetails/
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+###############################################################################
+
+
+
+All products of shop (POST)
+http://127.0.0.1:8000/api/singleshopallproducts/
+
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+Body
+shopID 1
+
+###############################################################################
+
+
+Edit customer details (POST)
+http://127.0.0.1:8000/api/updateuserdetails/
+
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+Body
+first_name hayden (str)
+phoneNo 723847 (str)
+
+###############################################################################
+
+
+Store Image(POST)
+http://127.0.0.1:8000/api/storeimage/
+
+
+Header
+Authorization Token fbc97380891e2476d2a6555cfc5e1df08a21831b
+
+Body
+image File
+
+
+###############################################################################
+
+
+
+
+
+
+
+
+
+Customer :
+3
+3
+
+DelvieryBoy
+2
+2
+
+vendor
+1
+1
+
+Admin
+hayden
+XYZ@1234
+
+
+
+12
